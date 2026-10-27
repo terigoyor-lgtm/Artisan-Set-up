@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setup Artisan Scope — Roasting Teguh 60 KG</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#beranda"><span class="brand-mark">A</span><span><strong>ARTISAN SETUP</strong><small>Roasting Teguh 60 KG</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+    <nav id="nav">
+      <a href="#beranda">Beranda</a><a href="#persiapan">Persiapan</a><a href="#setup">Setup Artisan</a><a href="#uji">Uji Suhu</a><a href="#masalah">Troubleshooting</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> PANDUAN LANGKAH DEMI LANGKAH</div>
+        <h1>Hubungkan mesin roasting ke <em>Artisan Scope.</em></h1>
+        <p>Panduan setup untuk Roasting Teguh 60 KG. Ikuti pemeriksaan perangkat, pengaturan Artisan, lalu uji apakah pembacaan suhu sudah tersedia.</p>
+        <div class="hero-actions"><a class="btn primary" href="#persiapan">Mulai setup <span>→</span></a><a class="btn secondary" href="#masalah">Suhu belum terbaca?</a></div>
+        <div class="device-strip"><span>USB-RS485 WJZHIT H485</span><span>COM5</span><span>HYUNYOUNG VX4 / UMMA-A1C</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="card-head"><span class="live-dot"></span> STATUS SETUP</div>
+        <div class="status-number" id="progressNumber">0%</div>
+        <p>Checklist langkah selesai</p>
+        <div class="progress"><span id="progressBar"></span></div>
+        <div class="status-row"><span>USB-RS485</span><b class="neutral">Terdeteksi COM5*</b></div>
+        <div class="status-row"><span>Pembacaan suhu</span><b class="warning">Belum terverifikasi</b></div>
+        <small>*Berdasarkan informasi setup sebelumnya. Periksa kembali di komputer yang digunakan.</small>
+      </div>
+    </section>
+
+    <section class="section" id="persiapan">
+      <div class="section-heading"><div><div class="eyebrow">01 / PERSIAPAN</div><h2>Periksa sebelum membuka Artisan</h2></div><p>Centang setiap langkah setelah benar-benar diperiksa.</p></div>
+      <div class="checklist panel">
+        <label><input type="checkbox" class="task"><span><strong>USB-RS485 terhubung ke komputer</strong><small>Gunakan port USB yang stabil. Hindari mencabut kabel saat aplikasi sedang membaca data.</small></span></label>
+        <label><input type="checkbox" class="task"><span><strong>Port COM sudah diketahui</strong><small>Di Windows: buka Device Manager → Ports (COM & LPT). Pastikan adaptor terlihat, misalnya COM5.</small></span></label>
+        <label><input type="checkbox" class="task"><span><strong>Kabel A/B diperiksa sesuai label perangkat</strong><small>Pastikan terminal RS485 A dan B terhubung sesuai dokumentasi kontroler/adaptor. Jangan menebak pin.</small></span></label>
+        <label><input type="checkbox" class="task"><span><strong>Model dan protokol kontroler dikonfirmasi</strong><small>Model yang disebutkan: HYUNYOUNG VX4 / UMMA-A1C. Protokol komunikasi masih belum diketahui.</small></span></label>
+      </div>
+      <div class="notice"><strong>Perhatian:</strong> Port COM yang muncul hanya membuktikan adaptor USB terdeteksi. Itu belum membuktikan Artisan dapat membaca data dari kontroler.</div>
+    </section>
+
+    <section class="section alt" id="setup">
+      <div class="section-heading"><div><div class="eyebrow">02 / SETUP ARTISAN</div><h2>Pengaturan di Artisan Scope</h2></div><p>Nama menu dapat sedikit berbeda menurut versi Artisan dan sistem operasi.</p></div>
+      <div class="steps">
+        <article class="step panel"><span class="step-num">1</span><div><h3>Buka Artisan Scope</h3><p>Jalankan Artisan dan pastikan tidak ada aplikasi lain yang sedang memakai COM5.</p><label class="step-check"><input type="checkbox" class="task"> Saya sudah memeriksa</label></div></article>
+        <article class="step panel"><span class="step-num">2</span><div><h3>Buka konfigurasi mesin</h3><p>Pada menu <b>Config</b>, buka bagian <b>Machine</b> untuk melihat pilihan mesin/profil yang tersedia. Jangan memilih profil yang tidak sesuai hanya agar nama mesin muncul.</p><label class="step-check"><input type="checkbox" class="task"> Saya sudah memeriksa</label></div></article>
+        <article class="step panel"><span class="step-num">3</span><div><h3>Periksa pengaturan komunikasi</h3><p>Temukan bagian komunikasi/serial yang tersedia pada versi Artisan Anda. Pilih COM5 hanya jika adaptor masih terdeteksi pada port tersebut.</p><p class="warning-text">Jangan menebak baud rate, parity, data bits, stop bits, atau protokol. Nilai ini harus cocok dengan dokumentasi/parameter kontroler.</p><label class="step-check"><input type="checkbox" class="task"> Saya sudah memeriksa</label></div></article>
+        <article class="step panel"><span class="step-num">4</span><div><h3>Simpan konfigurasi dan uji pembacaan</h3><p>Ikuti petunjuk Artisan untuk menyimpan konfigurasi, lalu periksa apakah nilai suhu masuk. Jika tidak ada data, lanjut ke troubleshooting.</p><label class="step-check"><input type="checkbox" class="task"> Saya sudah memeriksa</label></div></article>
+      </div>
+      <div class="notice"><strong>Penting:</strong> Artisan hanya dapat membaca data jika kontroler menggunakan protokol yang didukung dan parameter serialnya benar. Informasi saat ini belum cukup untuk menentukan protokol kontroler VX4/UMMA-A1C.</div>
+    </section>
+
+    <section class="section" id="uji">
+      <div class="section-heading"><div><div class="eyebrow">03 / UJI SUHU</div><h2>Catat hasil pengujian</h2></div><p>Gunakan catatan ini saat melanjutkan pemeriksaan.</p></div>
+      <div class="test-grid">
+        <div class="panel test-card"><div class="test-icon">↔</div><h3>Komunikasi serial</h3><p>Apakah COM5 masih muncul di Device Manager?</p><select id="comResult"><option value="">Pilih hasil…</option><option>Ya, COM5 muncul</option><option>Tidak, port tidak muncul</option></select></div>
+        <div class="panel test-card"><div class="test-icon">℃</div><h3>Pembacaan suhu</h3><p>Apakah Artisan menampilkan nilai suhu BT/ET?</p><select id="tempResult"><option value="">Pilih hasil…</option><option>Suhu terbaca</option><option>Suhu belum terbaca</option><option>Nilai tidak stabil / aneh</option></select></div>
+        <div class="panel test-card"><div class="test-icon">⌁</div><h3>Indikator adaptor</h3><p>Catat kondisi lampu TXD/RXD saat pengujian.</p><select id="ledResult"><option value="">Pilih hasil…</option><option>TXD berkedip, RXD berkedip</option><option>TXD berkedip, RXD menyala terus</option><option>Keduanya tidak berkedip</option><option>Kondisi lain</option></select></div>
+      </div>
+      <button class="btn primary" id="makeSummary">Buat ringkasan hasil</button>
+      <div class="panel summary hidden" id="summary"><h3>Ringkasan pemeriksaan</h3><pre id="summaryText"></pre><button class="btn secondary" id="copySummary">Salin ringkasan</button></div>
+    </section>
+
+    <section class="section alt" id="masalah">
+      <div class="section-heading"><div><div class="eyebrow">04 / TROUBLESHOOTING</div><h2>Jika suhu belum terbaca</h2></div><p>Periksa dari hal paling dasar sebelum mengubah konfigurasi.</p></div>
+      <div class="faq-list">
+        <details class="panel"><summary>COM5 tidak muncul</summary><p>Periksa kabel USB, coba port USB lain, lalu lihat Device Manager → Ports (COM & LPT). Jika perangkat muncul sebagai perangkat tidak dikenal, periksa driver sesuai chipset adaptor.</p></details>
+        <details class="panel"><summary>COM5 muncul tetapi suhu kosong</summary><p>Port yang terdeteksi belum menjamin protokol cocok. Pastikan kontroler benar-benar menyediakan komunikasi data melalui RS485, dan minta dokumentasi protokol serta parameter serial dari pemasok/pabrikan.</p></details>
+        <details class="panel"><summary>TXD berkedip tetapi RXD tidak berubah</summary><p>Ini dapat menunjukkan komputer mengirim permintaan tetapi belum menerima respons yang dapat dikenali. Periksa A/B, parameter serial, protokol, dan apakah perangkat lain menggunakan port tersebut. Indikator saja tidak cukup untuk memastikan penyebab.</p></details>
+        <details class="panel"><summary>Apakah boleh mencoba semua baud rate?</summary><p>Sebaiknya jangan menebak secara acak. Minta nilai baud rate, parity, data bits, stop bits, alamat perangkat, dan protokol dari pabrikan. Pengaturan yang salah dapat membuat komunikasi gagal atau data terbaca keliru.</p></details>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div><div class="eyebrow">LANGKAH BERIKUTNYA</div><h2>Pastikan protokol kontroler</h2><p>Karena protokol VX4/UMMA-A1C belum terkonfirmasi, langkah paling penting adalah meminta manual komunikasi dari pemasok.</p></div>
+      <a class="btn primary" href="https://artisan-scope.org/" target="_blank" rel="noopener">Buka situs resmi Artisan ↗</a>
+    </section>
+  </main>
+  <footer><span>ARTISAN SETUP · ROASTING TEGUH 60 KG</span><span>Panduan lokal · Tidak mengontrol mesin</span></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
